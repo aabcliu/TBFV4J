@@ -1,0 +1,14 @@
+1. 直观描述
+
+T1 → D1：
+T1：msg = 0
+D1：mode = 1 ∧ state = True
+
+T2 → D2：
+T2：msg = 1
+D2：mode = 1 ∧ state = False
+
+T3 → D3：
+T3：msg == 2
+D3：mode = 0 && state = False
+

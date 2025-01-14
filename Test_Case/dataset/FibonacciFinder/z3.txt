@@ -1,0 +1,8 @@
+    or(
+            (<= n 0) → result = -1
+            (> n 0)
+            → and(
+                  (<= (- (pow (+ 1 (/ sqrt(5) 2)) result-1) (pow (- 1 (/ sqrt(5) 2)) result-1)) (* sqrt(5) n))
+                  (> (- (pow (+ 1 (/ sqrt(5) 2)) result) (pow (- 1 (/ sqrt(5) 2)) result)) (* sqrt(5) n))
+            )
+      )

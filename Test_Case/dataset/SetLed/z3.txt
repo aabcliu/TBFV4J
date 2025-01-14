@@ -1,0 +1,5 @@
+(or
+    (and (= msg 0) → (and (= mode 1) (= state True)))
+    (and (= msg 1) → (and (= mode 1) (= state False)))
+    (and (= msg 2) → (and (= mode 0) (= state False)))
+)

@@ -1,0 +1,9 @@
+    or(
+            (N <= 0)
+            → result = 0
+            (N > 0)
+            → and(
+                  (<= (/ (* result (+ result 1) (+ (* 2 result) 1)) 6) N)
+                  (> (/ (* (+ result 1) (+ result 2) (+ (* 2 result) 3)) 6) N)
+            )
+      )
