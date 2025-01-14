@@ -1,0 +1,21 @@
+T1 → D1：输入非法
+T1：N<0
+D1：error = -1
+
+T2 → D2：epsilon<=0 ∧ N≥0
+T2: epsilon<=0 ∧ N≥0
+D2: error = -2
+
+T3 → D3：N≥0∧epsilon>0
+T3: N>=0∧epsilon>0
+D3: x^2-N<epsilon∧x^2-N>-epsilon
+
+
+
+
+
+
+
+N>=0 && N<200 && epsilon>0
+
+x*x-N<epsilon && x*x-N>-epsilon

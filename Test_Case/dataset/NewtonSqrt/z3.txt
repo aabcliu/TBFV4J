@@ -1,0 +1,13 @@
+(or
+    ;; 情况 1：输入非法
+    (and (< N 0) → (= error -1))
+    
+    ;; 情况 2：epsilon<=0 ∧ N≥0
+    (and (<= epsilon 0) (>= N 0) → (= error -2))
+
+    ;; 情况 3：N≥0∧epsilon>0
+    (and (>= N 0) (> epsilon 0) → (and (< (- (* x x) N) epsilon) (> (- (* x x) N) (- epsilon))))
+)
+
+
+

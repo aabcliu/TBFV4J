@@ -1,0 +1,38 @@
+DigitalRoot-数字根的应用：输入整数A和n，输出result为不超过A的数字根为n的最大值
+数字根:将一个数的各位数字相加，得到新数字，重复此过程直到数字为个位数，如：78->15->6，78的数字根为6。对于负数num，规定数字根为其相反数的数字根*(-1)
+num=0 ⟹ 数字根为0，正数num ⟹ 数字根=1+(num-1)mod9
+
+S =
+n > 9 ∨ n < -9 ∨ (A ≤ 0 ∧ n > 0) ∨ (A < 0 ∧ n ≥ 0)
+⟹ result = "error_code"
+∨
+n = 0 ∧ A ≥ 0
+⟹ result = 0
+∨
+-9 ≤ n ∧ n ≤ 9 ∧ (n > 0 ∨ n < 0) ∧ A ≥ n
+⟹ (result > 0 ∧ n = (1 + (result - 1) mod 9) ∧ result + 9 > A)
+∨ (result < 0 ∧ -n = (1 + (-result - 1) mod 9) ∧ (result + 9 ≥ 0 ∧ A < 0 ∨ result + 9 > A))
+ 
+T1: n > 9 ∨ n < -9 ∨ (A ≤ 0 ∧ n > 0) ∨ (A < 0 ∧ n ≥ 0)
+D1: result = "error_code"
+
+T2: n = 0 ∧ A ≥ 0
+D2: result = 0
+
+
+
+T3: -9 ≤ n ≤ 9 && (n > 0 || n < 0) && A ≥ n
+D3: (result > 0 && n = (1 + (result - 1) mod 9) && result + 9 > A) || (result < 0 && -n = (1 + (-result - 1) mod 9) && (result + 9 ≥ 0 && A < 0 || result + 9 > A)
+
+
+
+
+
+
+
+
+-9 ≤ n ≤ 9 && (n > 0 || n < 0) && A ≥ n
+
+n>=0 && n<=9 && A>=n
+
+(result > 0 && n = (1 + (result - 1) mod 9) && result + 9 > A) || (result < 0 && -n = (1 + (-result - 1) mod 9) && (result + 9 > 0 && A < 0 || result + 9 > A)

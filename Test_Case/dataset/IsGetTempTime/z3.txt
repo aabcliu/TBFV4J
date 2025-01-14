@@ -1,0 +1,22 @@
+
+(or
+    (and 
+        (>= cur_tick ~start_tick) 
+        (>= (- cur_tick ~start_tick) TIME_INTERVAL) 
+    → 
+    (and (= read_flag True) (= start_tick cur_tick)))
+    
+    (and 
+        (< cur_tick ~start_tick) 
+        (>= (+ (- UINT32_MAX ~start_tick) cur_tick) TIME_INTERVAL) 
+    → 
+    (and (= read_flag True) (= start_tick cur_tick)))
+    
+    (not 
+        (or 
+            (and (>= cur_tick ~start_tick) (>= (- cur_tick ~start_tick) TIME_INTERVAL)) 
+            (and (< cur_tick ~start_tick) (>= (+ (- UINT32_MAX ~start_tick) cur_tick) TIME_INTERVAL))
+        ) 
+    → 
+    (= read_flag False))
+)
