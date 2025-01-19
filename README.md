@@ -17,3 +17,7 @@ The specific location of this class is `org/example/print/CodePrinterAdder.java'
 3. For variables used in the code, such as variable x, try to enclose the variable in a pair of parentheses.
 
 The result returned by CodePrinterAdder is the processed Java code, which can be directly copied and executed, or used as input for the next stage.
+
+Step2:Run Dynamic Testing
+
+After executing the `CodePrinterAdder' class, the program generates complete code with embedded debugging output statements (we also provide Java code for the `Dynamic Testing' class in the dataset, which can be executed directly).  Users can remove redundant debugging statements as needed or use the generated code directly to execute the `Dynamic Testing' class.After the Java code to be validated is entered, TBFV4J will ask the user to input the Testing Condition, Defining Condition, and the maximum number of iterations. In the dataset we provide, complete Z3 specifications have already been included. Users can directly copy and input them.
