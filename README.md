@@ -15,5 +15,5 @@ The specific location of this class is `org/example/print/CodePrinterAdder.java'
 2. TBFV4J requires that spaces before and after parentheses in the test code should be removed as much as possible.
 
 3. For variables used in the code, such as variable x, try to enclose the variable in a pair of parentheses.
-4. 
+
 The result returned by CodePrinterAdder is the processed Java code, which can be directly copied and executed, or used as input for the next stage.
