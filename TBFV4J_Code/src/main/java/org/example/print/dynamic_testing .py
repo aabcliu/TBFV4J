@@ -160,37 +160,37 @@ def parse_execution_path(execution_output: str) -> list:
 
 def negate_ct_condition(ct):
     """
-    对复杂的 Ct 条件进行整体取反：
-    - 将 Ct 中的每个子条件取反。
-    - 将 '&&' 替换为 '||'。
-    - 如果子条件已经有 '!'，则消去双重否定。
+    Overall inversion of complex Ct conditions:
+    - Invert each sub-condition in Ct.
+    - Replace '&&' with '||'.
+    - If the subcondition already has '! ', then the double negative is eliminated.
     """
-    # 如果 Ct 有外层括号，去掉最外层括号
+    # If Ct has outer parentheses, remove the outermost parentheses
     if ct.startswith("(") and ct.endswith(")"):
         ct = ct[1:-1]
 
-    # 使用 split_logical 函数将 Ct 按 '&&' 拆分为子条件
+    # Use the split_logical function to split Ct into sub-conditions by '&&'
     subconditions = split_logical(ct, "&&")
 
-    # 遍历每个子条件并取反
+    # Go through each subcondition and invert it
     negated_conditions = []
     for condition in subconditions:
         condition = condition.strip()
-        if condition.startswith("!(") and condition.endswith(")"):  # 已经是取反的条件
-            negated_conditions.append(condition[2:-1])  # 去掉双重否定
-        elif condition.startswith("(") and condition.endswith(")"):  # 包含括号的条件
-            negated_conditions.append(f"!{condition}")  # 直接取反
+        if condition.startswith("!(") and condition.endswith(")"):  # It's already the inverse condition
+            negated_conditions.append(condition[2:-1])  # Remove the double negative
+        elif condition.startswith("(") and condition.endswith(")"):  # Conditions that contain parentheses
+            negated_conditions.append(f"!{condition}")  # Direct inversion
         else:
-            negated_conditions.append(f"!({condition})")  # 添加括号并取反
+            negated_conditions.append(f"!({condition})")  # Add parentheses and invert
 
-    # 将取反后的条件用 '||' 连接
+    # Concatenate the inverted condition with '||'
     negated_ct = " || ".join(negated_conditions)
 
     return negated_ct
 
 def split_logical(expression, operator):
     """
-    按照给定的逻辑运算符（如 '&&'）拆分逻辑表达式，同时保留括号的嵌套关系。
+    Split the logical expression with a given logical operator, such as '&&', while preserving the nested relationship of parentheses.
     """
     parts = []
     bracket_level = 0
@@ -200,39 +200,39 @@ def split_logical(expression, operator):
     while i < len(expression):
         char = expression[i]
 
-        # 更新括号嵌套层级
+        # Update the bracket nesting level
         if char == "(":
             bracket_level += 1
         elif char == ")":
             bracket_level -= 1
 
-        # 在括号层级为 0 且遇到操作符时拆分
+        # Split when the bracket level is 0 and an operator is encountered
         if bracket_level == 0 and expression[i:i + len(operator)] == operator:
             parts.append("".join(current_part).strip())
             current_part = []
-            i += len(operator) - 1  # 跳过操作符
+            i += len(operator) - 1  # Skip operator
         else:
             current_part.append(char)
 
         i += 1
 
-    # 添加最后一部分
+    # Add the last part
     parts.append("".join(current_part).strip())
     return parts
 def generate_logical_expression(t, previous_cts):
     """
-    将 T 和历史 Ct 条件组合生成新的逻辑表达式。
-    :param t: 测试条件 T（例如 "x >= 0"）。repeat_execution_with_ct
-    :param previous_cts: 历史 Ct 条件列表。
-    :return: 新的逻辑表达式。
+    Combine T and historical Ct conditions to generate a new logical expression.
+    :param t: Test condition T (for example, "x >= 0"). repeat_execution_with_ct
+    :param previous_cts: list of historical Ct conditions.
+    :return: indicates a new logical expression.
     """
-    # 初始逻辑表达式为 T
+    # The initial logical expression is T
     combined_expression = t
 
-    # 使用集合去重，避免重复的 Ct 条件
+    # Use set weight removal to avoid duplicate Ct conditions
     unique_cts = list(set(previous_cts))
 
-    # 累积所有 Ct 条件，并取反
+    # Accumulate all Ct conditions and invert them
     for ct in unique_cts:
         combined_expression = f"{combined_expression} && !( {ct} )"
 
@@ -268,15 +268,15 @@ def evaluate_expression(expr, values):
 
 def generate_random_inputs(logical_expression, variables, previous_cts, used_inputs, max_attempts=100):
     """
-    生成满足 T 且 !(Ct1) && !(Ct2) && ... 的随机输入，确保结果不重复。
-    :param logical_expression: 测试条件 T。
-    :param variables: 变量列表。
-    :param previous_cts: 历史 Ct 条件列表。
-    :param used_inputs: 已使用的输入集合。
-    :param max_attempts: 最大尝试次数。
-    :return: 满足条件的输入字典，或 None 如果找不到解。
+    Generate satisfying T and! (Ct1) && ! (Ct2) && ...  Random input to ensure that the results are not duplicated.
+    :param logical_expression: indicates the test condition T.
+    :param variables: List of variables.
+    :param previous_cts: list of historical Ct conditions.
+    :param used_inputs: Set of used inputs.
+    :param max_attempts: indicates the maximum number of attempts.
+    :return: The input dictionary that satisfies the condition, or None if the solution is not found.
     """
-    # 组合所有条件：T && !(Ct1) && !(Ct2) && ...
+    # Combine all conditions: T &&! (Ct1) && ! (Ct2) && ...
     combined_condition = logical_expression
     for ct in previous_cts:
         combined_condition = f"{combined_condition} && !( {ct} )"
@@ -284,19 +284,19 @@ def generate_random_inputs(logical_expression, variables, previous_cts, used_inp
     # print(f"Debug: Combined condition for input generation: {combined_condition}")
 
     for attempt in range(max_attempts):
-        # 随机生成变量值
+        # Randomly generate variable values
         inputs = {var: random.randint(-200, 200) for var in variables}
 
-        # 检查是否与历史输入重复
+        # Check for duplicates with historical input
         if tuple(inputs.items()) in used_inputs:
             # print(f"Debug: Attempt {attempt + 1}, Generated inputs are duplicate: {inputs}")
             continue
 
-        # 使用生成的输入评估逻辑表达式
+        # Evaluate the logical expression using the generated input
         result = evaluate_expression(combined_condition, inputs)
 
         if result:
-            # 如果找到满足条件且不重复的输入
+            # If an input is found that satisfies the criteria and does not duplicate
             used_inputs.add(tuple(inputs.items()))
             print(f"Debug: Satisfying inputs found: {inputs}")
             return inputs
@@ -306,55 +306,55 @@ def generate_random_inputs(logical_expression, variables, previous_cts, used_inp
 
 def simplify_expression(expression):
     """
-    简化逻辑表达式，移除多余的否定和冗余条件。
+    Simplify logical expressions and remove redundant negations and redundant conditions.
     """
-    # 移除双重否定 !!(expr) -> (expr)
+    # Remove double negatives!! (expr) -> (expr)
     expression = re.sub(r'!\(!\((.*?)\)\)', r'\1', expression)
-    expression = re.sub(r'\s+', ' ', expression)  # 去除多余空格
+    expression = re.sub(r'\s+', ' ', expression)  # Remove excess space
     return expression
 
 
 def repeat_execution_with_ct(java_code, T, D, rounds, input_variables):
     print("\n### Automated Execution ###")
-    previous_cts = []  # 存储所有历史 Ct 条件
-    used_inputs = set()  # 存储所有已使用的输入
-
+    previous_cts = []  # Store all historical Ct conditions
+    used_inputs = set()  # Stores all used inputs
+    
     for round_num in range(1, rounds + 1):
         print(f"\n### Execution Round {round_num} ###")
 
-        # 根据 T 和历史 Ct 条件生成新的逻辑表达式
+        # Generate new logical expressions based on T and historical Ct conditions
         logical_expression = generate_logical_expression(T, previous_cts)
         print(f"Current Logical Expression: {logical_expression}")
 
-        # 调用简化函数简化表达式
+        # Call the simplification function to simplify the expression
         logical_expression = simplify_expression(logical_expression)
         # print(f"Simplified Logical Expression: {logical_expression}")
 
-        # 生成满足 T && !(Ct1) && !(Ct2) && ... 的随机输入，确保不重复
+        # Generate satisfying T &&! (Ct1) && ! (Ct2) && ...  Random input to ensure no duplication
         generated_inputs = generate_random_inputs(
             logical_expression, input_variables, previous_cts, used_inputs
         )
 
-        # 检查生成结果
+        #Check generated results
         if not generated_inputs:
             print(f"No inputs satisfy the condition: {logical_expression}. Program terminating.")
             break
 
         print(f"Generated inputs: {generated_inputs}")
 
-        # 执行 Java 代码
+        # Execute Java code
         execution_output = run_java_code(java_code, generated_inputs)
         if not execution_output:
             print("No output from Java code execution.")
             continue
 
-        # 提取执行路径
+        # Extract execution path
         execution_path = parse_execution_path(execution_output)
         print("\nExecution Path:")
         # for step in execution_path:
         #     print(step)
 
-        # 推导 Hoare 逻辑
+        # Derive the Hoare logic
         derivation, new_d, new_ct = derive_hoare_logic(D, execution_path)
         print("\nHoare Logic Derivation:")
         # for step in derivation:
@@ -363,38 +363,38 @@ def repeat_execution_with_ct(java_code, T, D, rounds, input_variables):
         print(f"\nNew D: {new_d}")
         print(f"\nNew Ct: {new_ct}")
 
-        # 确保新的 Ct 不重复加入
+        # Ensure that no new Ct is added
         if new_ct not in previous_cts:
             previous_cts.append(new_ct)
 
-        # 构建新的逻辑表达式
+        # Build a new logical expression
         negated_d = f"!({new_d})"  # Negate D
         new_logic_expression = f"{T} && {new_ct} && {negated_d}"
 
-        # 调用简化函数简化表达式
+        # Call the simplification function to simplify the expression
         new_logic_expression = simplify_expression(new_logic_expression)
         print(f"\nT && Ct && !D: {new_logic_expression}")
 
-        # 使用 Z3 求解器检查表达式的可满足性
+        # Check the satisfiability of the expression using the Z3 solver
         try:
-            # 预处理逻辑表达式
+            # Preprocessed logical expression
             preprocessed_input = preprocess_expression(new_logic_expression)
 
-            # 提取变量并动态创建 Z3 符号变量
+            # Extract variables and dynamically create Z3 symbolic variables
             variables = {}
             variable_names = extract_variables(preprocessed_input)
             for var in variable_names:
-                variables[var] = Int(var)  # 使用 Int 处理整数变量
+                variables[var] = Int(var)  # Use Int to handle integer variables
 
-            # 解析表达式为 Z3 格式
+            # The parsing expression is in Z3 format
             parsed_expr = parse_to_z3(preprocessed_input, variables)
             # print(f"Parsed Z3 Expression: {parsed_expr}")  # 调试信息
 
-            # 使用 eval 转换为 Z3 表达式
+            # Convert to Z3 expressions using eval
             z3_expr = eval(parsed_expr, {"variables": variables, "And": And, "Or": Or, "Not": Not, "Implies": Implies})
             solver.add(z3_expr)
 
-            # 检查可满足性
+            # Check satisfiability
             if solver.check() == sat:
                 print("表达式是可满足的")
                 model = solver.model()
@@ -414,83 +414,83 @@ def repeat_execution_with_ct(java_code, T, D, rounds, input_variables):
 
 def derive_hoare_logic(specification: str, execution_path: list) -> (list, str, str):
     """
-    修正后的 derive_hoare_logic，支持复杂数学表达式的 D，并处理单条件或多条件。
+     The modified derive_hoare_logic supports D for complex mathematical expressions and handles single or multiple conditions.
     """
     derivation = []
     current_condition = specification
 
-    # 尝试解析 D 是否包含 "&&"
+    # Try to resolve whether D contains "&&"
     if "&&" in specification:
-        # 改进后的正则表达式，支持括号嵌套的复杂数学表达式
+        # The improved regular expression supports complex mathematical expressions nested in parentheses
         d_pattern = r"\((.+?)\)\s*&&\s*\((.+?)\)"
         d_match = re.match(d_pattern, specification)
 
         if d_match:
-            # 如果匹配成功，提取子条件
+            # If the match is successful, the subcondition is extracted
             d1 = d_match.group(1).strip()
             d2 = d_match.group(2).strip()
         else:
-            # 匹配失败时，抛出警告，但继续将整个 D 作为单条件处理
+            # When the match fails, a warning is thrown, but the entire D continues to be treated as a single condition
             print("Warning: Unable to parse D as two subconditions. Treating D as a single condition.")
             d1 = specification.strip()
             d2 = None
     else:
-        # 如果 D 是单一条件
+        # If D is a single condition
         d1 = specification.strip()
         d2 = None
 
-    # 初始化 D 的子式
+    # Initializes a subexpression of D
     updated_d1 = d1
     updated_d2 = d2
 
     for step in reversed(execution_path):
         derivation.append(f"After executing: {step}")
 
-        # 检查是否是进入循环的条件
+        # Check whether it is a condition to enter the loop
         if "Entering loop" in step:
             condition_match = re.search(r"Entering loop with condition: (.*?) is evaluated as: true", step)
             if condition_match:
                 loop_condition = condition_match.group(1).strip()
                 current_condition = f"{current_condition} && ({loop_condition})"
 
-        # 检查是否是退出循环的条件
+        # Check whether it is a condition for exiting the loop
         elif "Exiting loop" in step:
             condition_match = re.search(r"Exiting loop, condition no longer holds: (.*?) is evaluated as: false", step)
             if condition_match:
                 loop_condition = condition_match.group(1).strip()
                 current_condition = f"{current_condition} && !({loop_condition})"
 
-        # 检查是否是变量赋值
+        # Check for variable assignment
         elif "current value" in step:
             assignment_match = re.search(r"(.*?) = (.*?), current value of (.*?): (.*?)$", step)
             if assignment_match:
                 variable = assignment_match.group(1).strip()
                 value = assignment_match.group(2).strip()
 
-                # 更新 D 的子式
+                # Update a child of D
                 updated_d1 = replace_variables(updated_d1, variable, value)
                 if updated_d2 is not None:
                     updated_d2 = replace_variables(updated_d2, variable, value)
 
-                # 更新当前条件
+                # Update current condition
                 current_condition = replace_variables(current_condition, variable, value)
 
         derivation.append(f"Current Condition: {current_condition}")
 
-    # 构建 New D 和 New Ct
+    # New D and New Ct were constructed
     if updated_d2 is not None:
         new_d = f"({updated_d1}) && ({updated_d2})"
     else:
-        new_d = updated_d1  # 如果没有第二个子条件，直接返回 updated_d1
+        new_d = updated_d1  # If there is no second subcondition, simply return updated_d1
 
     new_ct = current_condition.replace(new_d, "").strip(" &&")
 
     return derivation, new_d, new_ct
 def replace_variables(current_condition: str, variable: str, new_value: str) -> str:
     """
-    替换逻辑条件中的变量为新的值。
+    Replace the variable in the logical condition with the new value.
     """
-    pattern = rf'\b{re.escape(variable)}\b'  # 精确匹配变量名
+    pattern = rf'\b{re.escape(variable)}\b'  # Match variable names exactly
     return re.sub(pattern, new_value, current_condition)
 def main():
 
@@ -500,7 +500,7 @@ def main():
     repeat_execution_with_ct(java_code, T, D, rounds, input_variables)
     end_time = time.time()
 
-    # 计算运行时间（秒）
+    # Calculate running time (seconds)
     execution_time = end_time - start_time
     execution_time=execution_time
     print(f"Running time: {execution_time:.6f} seconds")
