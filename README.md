@@ -27,7 +27,8 @@ The flow of TBFV4J is:
 The GitHub repository: https://github.com/aabcliu/TBFV4J.git
 GitHub command: gh repo clone aabcliu/TBFV4J
 ```
-This project consists of two main components: the first component is the executable source code of TBFV4J, and the second component is the TBFV4J dataset. After downloading the project to the local environment, the first step is to extract the files. Once extraction is complete, import TBFV4J into the user's local integrated development environment (IDE), such as IntelliJ IDEA, Eclipse, or Visual Studio Code. We will take IntelliJ IDEA as an example and provide detailed installation and running instructions.
+This project consists of two main components: the first component is the executable source code of TBFV4J, and the second component is the TBFV4J dataset. After downloading the project to the local environment, the first step is to extract the files. 
+Once extraction is complete, import TBFV4J into the user's local integrated development environment (IDE), such as IntelliJ IDEA, Eclipse, or Visual Studio Code. We will take IntelliJ IDEA as an example and provide detailed installation and running instructions.
 
 ## Add TBFV4J to Your Project
 
@@ -62,9 +63,7 @@ Include the following dependency in your project build file:
 
 # Quick Start
 
-In the video link below, we demonstrate how to run a simple example using TBFV4J.
-
-Please watch the video to learn about all the features and capabilities supported by TBFV4J.
+In the video link below, we demonstrate how to run a simple example using TBFV4J.Please watch the video to learn about all the features and capabilities supported by TBFV4J.
 
 Follow the TBFV4J guide to write and run your own tests.
 
