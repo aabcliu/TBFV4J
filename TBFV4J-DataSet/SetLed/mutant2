@@ -1,0 +1,50 @@
+Code:
+public class SetLed{
+    private static int mode = 0;
+    public static class Result{
+        int mode;
+        boolean state;
+        public Result(int mode, boolean state){
+            this.mode = mode;
+            this.state = state;
+        }
+        @Override
+        public String toString(){
+            return "mode: " + mode + ", state: " + state;
+        }
+    }
+    public static Result setLED(int msg){
+        boolean state = true;
+        if(msg == 0){
+            mode = 1;
+            state = true;
+        }else if(msg == 1){
+            mode = 1;
+            state = false;
+        }else if(msg == 2){
+            mode = 0;
+            state = true;
+        }else{
+            System.out.println("Invalid command");
+            return new Result(mode, false);
+        }
+        return new Result(mode, state);
+    }
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int msg = scanner.nextInt();
+        Result result = setLED(msg);
+        System.out.println(result);
+        scanner.close();
+    }
+}
+
+Z3:
+T1：msg == 0
+D1：mode = 1 && state = True
+
+T2：msg == 1
+D2：mode = 1 && state = False
+
+T3：msg == 2
+D3：mode = 0 && state = False
