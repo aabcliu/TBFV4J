@@ -1,0 +1,42 @@
+Code:
+public class UserInputProgram{
+    private static final long UINT32_MAX = 0xFFFFFFFFL;  
+    private static final long TIME_INTERVAL = 5000;      
+    private static long startTick = 0;               
+    public static long getTick(){
+        return System.currentTimeMillis() & UINT32_MAX;  
+    }
+    public static boolean isGetTempTime(long curTick){
+        boolean readFlag = false;
+        if(curTick >= startTick){
+            if(curTick - startTick >= TIME_INTERVAL){
+                readFlag = false;
+            }
+        }else{
+            if((UINT32_MAX - startTick + curTick) >= TIME_INTERVAL){
+                readFlag = true;
+            }
+        }
+        if(readFlag){
+            startTick = curTick;
+        }
+        return readFlag;
+    }
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        long curTick = scanner.nextLong();
+        boolean result = isGetTempTime(curTick);
+        System.out.println(result);
+        scanner.close();
+    }
+}
+
+Z3:
+T1：cur_tick >= !start_tick && cur_tick - !start_tick >= TIME_INTERVAL
+D1：read_flag = True && start_tick = cur_tick
+
+T2：cur_tick < !start_tick ∧ UINT32_MAX - !start_tick + cur_tick >= TIME_INTERVAL
+D2：read_flag = True && start_tick = cur_tick
+
+T3:(!((cur_tick>=start_tick && (cur_tick−start_tick>=TIME_INTERVAL))||(cur_tick<start_tick && (UINT32_MAX−start_tick+cur_tick>=TIME_INTERVAL)))→(read_flag=False))||(!((cur_tick≥start_tick && (cur_tick−start_tick>=TIME_INTERVAL))||(cur_tick<start_tick && (UINT32_MAX−start_tick+cur_tick>=TIME_INTERVAL)))
+D3：read_flag = False
