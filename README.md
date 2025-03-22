@@ -1,6 +1,5 @@
 
-TBFV4J: An automated testing-based formal verification tool for
-Java
+# TBFV4J: An automated testing-based formal verification tool for Java
 # Introduction
 
 ## Background
