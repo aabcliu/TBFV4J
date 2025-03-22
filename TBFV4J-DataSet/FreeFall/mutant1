@@ -1,0 +1,33 @@
+Code:
+public class UserInpyProgram{
+    public static void main(String[] args) {
+        final double g = 9.8;  
+        Scanner scanner = new Scanner(System.in);
+        double h0 = scanner.nextDouble();
+        double y = scanner.nextDouble();
+        if(y < 0){
+            System.out.println("Distance cannot be negative.");
+        }else if(y > h0){
+            System.out.println("Fall distance exceeds initial height.");
+        }else{
+            double currentDistance = 0;
+            int t = 0;  
+            double V = 0;  
+            while(currentDistance < y){
+                t=t+2;  
+                currentDistance = 0.5 * g * t * t;  // y = 1/2 * g * t^2
+                V = g * t;  // v = g * t
+                if(currentDistance >= y){
+                    break;
+                }
+            }
+            System.out.println("Time after falling " + currentDistance + " meters from initial height " + h0 + " meters: " + t + " seconds.");
+            System.out.println("Speed at that moment: " + V + " m/s.");
+        }
+        scanner.close();
+    }
+}
+
+Z3:
+T1 : y > 0; 
+D1 : ((1/2)*(g)*(t)*(t) >= y && (1/2)*(g)*(t-1)*(t-1) < y && (1/2)*(g)*(t)*(t) <=h0) || ((1/2)*(g)*(t)*(t) >= y && (1/2)*(g)*(t-1)*(t-1) < y && ((1/2)*(g)*(t)*(t) > h0) → (V)=0)
