@@ -7,6 +7,17 @@ Java
 
 The Test-Based Formal Verification (TBFV) tool presented in this paper integrates Specification-Based Testing and Formal Verification to automate the verification of whether a Java program adheres to its specifications. By employing a grey-box testing approach that leverages path exploration and constraint solving, TBFV eliminates the need for deriving loop invariants. 
 
+
+Here are some published papers related to TBFV.
+
+| Publication                                                  | Published         | Paper Titile                                                 |
+| ------------------------------------------------------------ | ----------------- | ------------------------------------------------------------ |
+| [Turing-100. The Alan Turing Centenary](https://easychair.org/publications/volume/Turing-100) | June 22, 2012     | [Utilizing Hoare Logic to Strengthen Testing for Error Detection in Programs.](https://easychair.org/publications/paper/476) |
+| [IEEE Transactions on Software Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32) | February 01, 2022 | [Automatic Test Case and Test Oracle Generation Based on Functional Scenarios in Formal Specifications for Conformance Testing](https://ieeexplore.ieee.org/document/9108630) |
+| [IEEE Transactions on Software Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32) | January 01,  2023 | [Enhancing the Capability of Testing-Based Formal Verification by Handling Operations in Software Packages](https://ieeexplore.ieee.org/document/9712239) |
+
+## 
+
 ## Functionality
 
 The tool evaluates functional scenarios and provides either a confirmation that the program meets the specified requirements or a counterexample demonstrating a violation. To manage computational complexity, a limit is set on the maximum number of generated test cases, corresponding to the number of explored paths.
