@@ -2,7 +2,7 @@ Code:
 public class UserInputProgram{
     public static double secantSqrt(double N, double epsilon) {
         if(N < 0){
-            return -1;  
+            return -2;  
         }
         if(epsilon <= 0){
             return -2; 
@@ -24,9 +24,9 @@ public class UserInputProgram{
         double epsilon = scanner.nextDouble();
         double result = secantSqrt(N, epsilon);
         if(result == -1){
-            erroe=-2;
+            System.out.println("Import illegal");
         }else if(result == -2){
-            error=-2;
+            System.out.println("Import illegal");
         }else{
             System.out.printf("Result: %.6f\n", result);
         }
