@@ -16,3 +16,15 @@ The flow of TBFV4J is:
 <p align="center">
   <img width="594" alt="截屏2025-03-21 15 02 55" src="https://github.com/user-attachments/assets/fd924609-c02d-40e0-a823-48f8fd6f6faa" />
 </p>
+
+# Installation
+
+## Download TBFV4J
+
+### Build From Source
+
+```
+The GitHub repository: https://github.com/aabcliu/TBFV4J.git
+GitHub command: gh repo clone aabcliu/TBFV4J
+```
+
