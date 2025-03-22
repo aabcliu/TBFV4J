@@ -3,7 +3,11 @@ TBFV4J: An automated testing-based formal verification tool for
 Java
 # Introduction
 
-The Test-Based Formal Verification (TBFV) tool presented in this paper integrates Specification-Based Testing and Formal Verification to automate the verification of whether a Java program adheres to its specifications. By employing a grey-box testing approach that leverages path exploration and constraint solving, TBFV eliminates the need for deriving loop invariants.
+## Background
+
+The Test-Based Formal Verification (TBFV) tool presented in this paper integrates Specification-Based Testing and Formal Verification to automate the verification of whether a Java program adheres to its specifications. By employing a grey-box testing approach that leverages path exploration and constraint solving, TBFV eliminates the need for deriving loop invariants. 
+
+## Functionality
 
 The tool evaluates functional scenarios and provides either a confirmation that the program meets the specified requirements or a counterexample demonstrating a violation. To manage computational complexity, a limit is set on the maximum number of generated test cases, corresponding to the number of explored paths.
 
