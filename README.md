@@ -28,3 +28,37 @@ The GitHub repository: https://github.com/aabcliu/TBFV4J.git
 GitHub command: gh repo clone aabcliu/TBFV4J
 ```
 This project consists of two main components: the first component is the executable source code of TBFV4J, and the second component is the TBFV4J dataset. After downloading the project to the local environment, the first step is to extract the files. Once extraction is complete, import TBFV4J into the user's local integrated development environment (IDE), such as IntelliJ IDEA, Eclipse, or Visual Studio Code. We will take IntelliJ IDEA as an example and provide detailed installation and running instructions.
+
+## Add TBFV4J to Your Project
+
+Include the following dependency in your project build file:
+
+### Maven
+
+```xml
+<dependencies>
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+            <version>3.23.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.z3</groupId>
+            <artifactId>z3</artifactId>
+            <version>4.13.3</version>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.16</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>3.1</version>
+        </dependency>
+    </dependencies>
+```
+
+
