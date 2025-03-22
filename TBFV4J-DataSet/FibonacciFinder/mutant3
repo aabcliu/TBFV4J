@@ -1,0 +1,34 @@
+Code:
+public class FibonacciFinder{
+    public static double fibonacci(int k){
+        double phi = (1 + Math.sqrt(5)) / 2; 
+        double psi = (1 - Math.sqrt(5)) / 2; 
+        return (Math.pow(phi, k) - Math.pow(psi, k)) * Math.sqrt(5);
+    }
+    public static int findFib(int n){
+        if(n<=0){
+            return 1;
+        }
+        int k = 0;
+        double fib;
+        do{
+            fib = fibonacci(k);
+            k++;
+        }while(fib <= n);
+        return k - 1; 
+    }
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int index = findFib(n);
+        double result = fibonacci(index);
+        System.out.printf("第 %d Fibonacci number: %.0f\n", index, result);
+    }
+}
+
+Z3:
+T1: n <= 0
+D1: result = 1
+
+T2: n > 0
+D2: ((1 + sqrt(5))/2)^((result) - 1) - ((1 - sqrt(5))/2)^((result) - 1) ≤ sqrt(5)n ((1 + sqrt(5))/2)^result - ((1 - sqrt(5))/2)^result > sqrt(5)n
