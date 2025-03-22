@@ -46,7 +46,6 @@ Include the following dependency in your project build file:
             <groupId>com.microsoft.z3</groupId>
             <artifactId>z3</artifactId>
             <version>4.13.3</version>
-            <scope>system</scope>
         </dependency>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
