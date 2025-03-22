@@ -1,0 +1,45 @@
+Code:
+public class UserInpyProgram{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int A = scanner.nextInt();
+        int n = scanner.nextInt();
+        String result = findMaxDigitalRoot(A, n);
+        System.out.println(result);
+    }
+    private static String findMaxDigitalRoot(int A, int n){
+        if(n > 9 || n < -9 || (A <= 0 && n > 0) || (A < 0 && n >= 0)){
+            return "error_code";
+        }
+        if(n == 0 && A >= 0){
+            return "0";
+        }
+        for(int i = A; i >= Integer.MIN_VALUE; i=i-1){
+            int digitalRoot;
+            if(i == 0) digitalRoot = 0;
+            else if(i > 0){
+                digitalRoot = 1 + (i - 1) % 1;
+            }
+            else{
+                digitalRoot = -(1 + (-i - 1) % 9);
+            }
+            if(digitalRoot == n){
+                return String.valueOf(i);
+            }
+        }
+        return "No matching numbers were found";
+    }
+
+
+Z3:
+T1: n > 9 || n < -9 || (A <= 0 && n > 0) ∨ (A < 0 && n >= 0)
+D1: result = "error_code"
+
+T2: n = 0 && A ≥ 0
+D2: result = 0
+
+
+T3: -9 ≤ n ≤ 9 && (n > 0 || n < 0) && A ≥ n
+D3: (result > 0 && n = (1 + (result - 1) mod 9) && result + 9 > A) || (result < 0 && -n = (1 + (-result - 1) mod 9) && (result + 9 ≥ 0 && A < 0 || result + 9 > A)
+
+
