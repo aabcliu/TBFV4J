@@ -1,0 +1,21 @@
+Code:
+public class UserInputProgram{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int x = scanner.nextInt();
+        int sum = 0;
+        int n = 0;
+        while(sum <= x){
+             n = (n) + 1;
+             sum = sum + ((n) * (n) * (n));
+        }
+    }
+}
+
+
+Z3:
+T1:x>0
+D1:((n)-1)*(n)*((n)-1)*(n)/4<x && (n)*((n)+1)*(n)*((n)+1)/4>=x
+
+T2:x<=0
+D2:(n)=0
