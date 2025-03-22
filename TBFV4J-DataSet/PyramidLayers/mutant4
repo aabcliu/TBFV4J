@@ -1,0 +1,31 @@
+Code:
+public class UserInputProgram{
+    public static int maxPyramidLayers(int N){
+        if(N <= 0){
+            return 0;
+        }
+        int result = 0;
+        while(true){
+            int currentBricks = (result * (result + 1) * (2 * result + 1)) / 6;
+            int nextBricks = ((result + 1) * (result + 2) * (2 * result + 3)) / 6;
+            if(currentBricks <= N && N < nextBricks){
+                break;
+            }
+            result=result+2;
+        }
+        return result;
+    }
+    public static void main(String[] args){
+	    	Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();; 
+		    int result=maxPyramidLayers(N);
+        System.out.println(result);
+    }
+}
+
+Z3:
+T1:(N)>0
+D1:((result) * ((result) + 1) * (2 * (result) + 1))/6 <= (N) && (((result) + 1) * ((result) + 2) * (2 * ((result) + 1) + 3))/6 > (N)
+
+T2:N <= 0
+D2:result = 0
