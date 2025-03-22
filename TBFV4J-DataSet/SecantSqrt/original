@@ -37,10 +37,10 @@ public class UserInputProgram{
 
 Z3:
 T1：N<0
-D1：error = -1
+D1：result = -1
 
 T2: epsilon<=0 && N>=0
-D2: error = -2
+D2: result = -2
 
 T3:N>=0 && epsilon>0
 D3:x*x-N<epsilon && x*x-N>-epsilon
