@@ -1,5 +1,5 @@
 Code:
-public class SetLed{
+public class UserInputProgram{
     private static int mode = 0;
     public static class Result{
         int mode;
