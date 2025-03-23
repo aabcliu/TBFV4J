@@ -73,7 +73,7 @@ Include the following dependency in your project build file:
 
 # Quick Start
 
-In the video link below, we demonstrate how to run a simple example using TBFV4J.Please watch the video to learn about all the features and capabilities supported by TBFV4J.
+In the video link below, we demonstrate how to run a simple example using TBFV4J. Please watch the video to learn about all the features and capabilities supported by TBFV4J.
 
 Follow the TBFV4J guide to write and run your own tests.
 
