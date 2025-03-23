@@ -1,4 +1,3 @@
-<img width="449" alt="截屏2025-03-23 14 28 16" src="https://github.com/user-attachments/assets/b5e3a8ce-f10c-4114-a07a-de9258a04421" />
 # TBFV4J: An automated testing-based formal verification tool for Java
 # Introduction
 
