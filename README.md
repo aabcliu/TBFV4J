@@ -23,7 +23,8 @@ The tool evaluates functional scenarios and provides either a confirmation that 
 The flow of TBFV4J is:
 
 <p align="center">
-  <img width="594" alt="截屏2025-03-21 15 02 55" src="https://github.com/user-attachments/assets/fd924609-c02d-40e0-a823-48f8fd6f6faa" />
+  <img width="594" alt="<img width="449" alt="截屏2025-03-23 14 28 16" src="https://github.com/user-attachments/assets/6b1de6de-b93a-4376-aa74-7b9d7e66bc3e" />
+" />
 </p>
 
 # Installation
