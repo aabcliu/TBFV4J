@@ -41,7 +41,7 @@
 | 9.0   | 17                   | 21.728025 | Totally verified  |
 | 9.1   | 17                   | 23.446415 | Totally verified  |
 | 9.2   | 5                    | 4.902448  | Counterexample:  -1  |
-| 9.3   | 3                    | 2.764928  | Counterexample:   -1 |
+| 9.3   | 3                    | 2.764928  | Counterexample:   -3 |
 | 9.4   | 10                   | 11.911745 | Counterexample:  123/2  |
 | 9.5   | 5                    | 4.886071  | Counterexample:   23 |
 | 10.0  | 6                    | 2.952516  | Totally verified  |
