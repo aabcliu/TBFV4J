@@ -1,5 +1,5 @@
 Code:
-public class UserInputProgram{
+public class aa{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         int A = scanner.nextInt();
@@ -11,7 +11,7 @@ public class UserInputProgram{
         if(n > 9 || n < -9 || (A <= 0 && n > 0) || (A < 0 && n >= 0)){
             return "error_code";
         }
-        if(n == 0 && A >= 0){
+        if(n == 0 && A > 0){
             return "0";
         }
         for(int i = A; i >= Integer.MIN_VALUE; i=i-1){
@@ -29,8 +29,7 @@ public class UserInputProgram{
         }
         return "No matching numbers were found";
     }
-    }
-
+}
 
 Z3:
 T1: n > 9 || n < -9 || (A <= 0 && n > 0) ∨ (A < 0 && n >= 0)
