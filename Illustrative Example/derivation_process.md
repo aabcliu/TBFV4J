@@ -1,7 +1,7 @@
 The theoretical derivation process presented here is a continuation and supplementary explanation of Section 4-Illustrative Example in the article.
 
-For the first functional scenario:  
-$$T_1 := x \leq 0, \, D_1 := n = 0$$
+
+For the first functional scenario:  $$T_1 := x \leq 0, \, D_1 := n = 0$$
 
 Let's take $$x = -10$$ as an example:
 
@@ -25,4 +25,5 @@ $$
 
 $$T \land Ct \Rightarrow D' := x \leq 0 \land !(0 < x) \Rightarrow (0 = 0)$$
 
-That is to prove $$D' := x \leq 0 \land !(0 < x) \Rightarrow (0 = 0)$$ is a tautology, which is obviously true.
+That is to prove $$x \leq 0 \land !(0 < x) \Rightarrow (0 = 0)$$ is a tautology, which is obviously true.
+
