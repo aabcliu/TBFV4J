@@ -2,7 +2,7 @@
 | No.   | Number of test cases | Time(s)   | Result            |
 |-------|----------------------|-----------|-------------------|
 | 1.1   | 11                   | 8.041594  | Totally verified  |
-| 1.2   | 4                    | 1.258768  | Counterexample:   |
+| 1.2   | 4                    | 1.258768  | Counterexample: xxxx  |
 | 1.3   | 6                    | 2.832229  | Counterexample:    |
 | 1.4   | 5                    | 1.966825  | Counterexample    |
 | 1.5   | 7                    | 3.854978  | Counterexample    |
