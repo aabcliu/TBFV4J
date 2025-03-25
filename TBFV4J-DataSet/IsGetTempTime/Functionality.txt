@@ -1,1 +1,8 @@
-The main function of this code is to compare the current timestamp (in milliseconds) with the previously recorded timestamp to determine whether the preset time interval (5000 milliseconds, or 5 seconds) has been exceeded. The program first defines a constant `UINT32_MAX` to simulate the maximum value of a 32-bit unsigned integer and uses `startTick` to record the time of the last operation. The `getTick` method retrieves the current timestamp and limits it to the range of a 32-bit unsigned integer. The `isGetTempTime` method checks whether the time interval between the current time and the last recorded time is greater than or equal to 5 seconds to decide if the condition is met. If the condition is met, it updates `startTick`. In the `main` method, after the user inputs the current timestamp, the program outputs the result of whether the time interval has been exceeded.
+The main function of this code is to compare the current timestamp (in milliseconds) with the previously recorded
+timestamp to determine whether the preset time interval (5000 milliseconds, or 5 seconds) has been exceeded. The 
+program first defines a constant UINT32_MAX to simulate the maximum value of a 32-bit unsigned integer and uses 
+startTick to record the time of the last operation. The getTick method retrieves the current timestamp and limits 
+it to the range of a 32-bit unsigned integer. The isGetTempTime method checks whether the time interval between the 
+current time and the last recorded time is greater than or equal to 5 seconds to decide if the condition is met. If 
+the condition is met, it updates startTick. In the main method, after the user inputs the current timestamp, the 
+program outputs the result of whether the time interval has been exceeded.
