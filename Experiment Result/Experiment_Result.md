@@ -12,8 +12,8 @@
 | 2.2   | 5                    | 12.427794 | Counterexample:  7    |
 | 3.0   | 26                   | 20.805720 | Totally verified  |
 | 3.1   | 12                   | 7.308792  | Counterexample: 1   |
-| 3.2   | 15                   | 9.401510  | Counterexample:      |
-| 3.3   | 7                    | 4.725882  | Counterexample:    |
+| 3.2   | 15                   | 9.401510  | Counterexample:  13    |
+| 3.3   | 7                    | 4.725882  | Counterexample:  4    |
 | 4.0   | 14                   | 9.111284  | Totally verified  |
 | 4.1   | 4                    | 1.172165  | Counterexample:    |
 | 4.2   | 8                    | 2.375108  | Counterexample:    |
