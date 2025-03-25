@@ -32,18 +32,18 @@
 | 7.2   | 4                    | 0.620281  | Counterexample:  6  |
 | 7.3   | 2                    | 0.221565  | Counterexample:  0    |
 | 7.4   | 18                   | 9.717270  | Counterexample:  125  |
-| 7.5   | 5                    | 1.084125  | Counterexample:    |
+| 7.5   | 5                    | 1.084125  | Counterexample:  34  |
 | 8.0   | 15                   | 11.228595 | Totally verified  |
-| 8.1   | 7                    | 3.376820  | Counterexample:    |
-| 8.2   | 5                    | 2.480929  | Counterexample:    |
-| 8.3   | 16                   | 12.146209 | Counterexample:    |
-| 8.4   | 9                    | 5.582099  | Counterexample:    |
+| 8.1   | 7                    | 3.376820  | Counterexample:   42 |
+| 8.2   | 5                    | 2.480929  | Counterexample:  -7  |
+| 8.3   | 16                   | 12.146209 | Counterexample:  96  |
+| 8.4   | 9                    | 5.582099  | Counterexample:   54 |
 | 9.0   | 17                   | 21.728025 | Totally verified  |
 | 9.1   | 17                   | 23.446415 | Totally verified  |
-| 9.2   | 5                    | 4.902448  | Counterexample:    |
-| 9.3   | 3                    | 2.764928  | Counterexample:    |
-| 9.4   | 10                   | 11.911745 | Counterexample:    |
-| 9.5   | 5                    | 4.886071  | Counterexample:    |
+| 9.2   | 5                    | 4.902448  | Counterexample:  -1  |
+| 9.3   | 3                    | 2.764928  | Counterexample:   -1 |
+| 9.4   | 10                   | 11.911745 | Counterexample:  123/2  |
+| 9.5   | 5                    | 4.886071  | Counterexample:   23 |
 | 10.0  | 6                    | 2.952516  | Totally verified  |
 | 10.1  | 4                    | 0.963104  | Counterexample:    |
 | 10.2  | 2                    | 0.457889  | Counterexample:    |
