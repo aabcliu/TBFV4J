@@ -1,6 +1,6 @@
 The theoretical derivation process presented here is a continuation and supplementary explanation of Section 4-Illustrative Example in the article.
 
-The theoretical derivation process presented here is a continuation and supplementary explanation of Section 4 - Illustrative Example in the article.
+
 
 For the first functional scenario:
 
@@ -14,6 +14,7 @@ The actual execution path of the program is:
 
 $$
 sum = 0; \\
+
 n = 0; \\
 \neg(sum < x)
 $$
