@@ -17,16 +17,16 @@
 | 4.0   | 14                   | 9.111284  | Totally verified  |
 | 4.1   | 4                    | 1.172165  | Counterexample:  7/2    |
 | 4.2   | 8                    | 2.375108  | Counterexample:  10  |
-| 4.3   | 7                    | 2.077817  | Counterexample:   23 |
-| 4.4   | 10                   | 4.148606  | Counterexample:   6 |
+| 4.3   | 7                    | 2.077817  | Counterexample:   6 |
+| 4.4   | 10                   | 4.148606  | Counterexample:   34 |
 | 5.0   | 10                   | 5.270240  | Totally verified  |
-| 5.1   | 7                    | 3.359520  | Counterexample:    |
-| 5.2   | 13                   | 7.216367  | Counterexample:    |
-| 5.3   | 6                    | 2.578605  | Counterexample:    |
+| 5.1   | 7                    | 3.359520  | Counterexample:  28  |
+| 5.2   | 13                   | 7.216367  | Counterexample:   87 |
+| 5.3   | 6                    | 2.578605  | Counterexample:   21 |
 | 6.0   | 18                   | 15.590197 | Totally verified  |
 | 6.1   | 18                   | 16.001919 | Totally verified  |
-| 6.2   | 13                   | 7.809769  | Counterexample:    |
-| 6.3   | 16                   | 11.622232 | Counterexample:    |
+| 6.2   | 13                   | 7.809769  | Counterexample:  91    |
+| 6.3   | 16                   | 11.622232 | Counterexample:  122  |
 | 7.0   | 26                   | 18.494554 | Totally verified  |
 | 7.1   | 7                    | 2.714171  | Counterexample:    |
 | 7.2   | 4                    | 0.620281  | Counterexample:    |
