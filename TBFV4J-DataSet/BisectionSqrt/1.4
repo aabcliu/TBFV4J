@@ -8,7 +8,7 @@ public class BisectionSqrt{
         }
         double low = 0, high = Math.max(1, N);  
         while(((low + high))*((low + high) / 2)-N > epsilon){
-            double mid = (low + high) / 2;
+            double mid = (low + high) / 3;
             if(mid * mid < N){
                 low = mid; 
             }else{
