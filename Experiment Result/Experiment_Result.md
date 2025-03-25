@@ -57,4 +57,4 @@
 | 13.0  | 6                    | 3.598183  | Totally verified  |
 | 13.1  | 6                    | 3.778133  | Totally verified  |
 | 13.2  | 2                    | 0.769957  | Counterexample:    |
-| 13.4  | 4                    | 1.794851  | Counterexample:    |
+| 13.3  | 4                    | 1.794851  | Counterexample:    |
