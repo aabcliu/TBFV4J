@@ -5,7 +5,7 @@
 | 1.1   | 4                    | 1.258768  | Counterexample: -1    |
 | 1.2   | 6                    | 2.832229  | Counterexample: -1    |
 | 1.3   | 5                    | 1.966825  | Counterexample:  0    |
-| 1.4   | 7                    | 3.854978  | Counterexample:    |
+| 1.4   | 7                    | 3.854978  | Counterexample:  5    |
 | 1.5   | 6                    | 2.423132  | Counterexample:    |
 | 2.0   | 5                    | 12.683130 | Totally verified  |
 | 2.1   | 4                    | 8.116110  | Counterexample:    |
