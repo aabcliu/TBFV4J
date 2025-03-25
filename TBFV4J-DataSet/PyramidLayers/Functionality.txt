@@ -1,1 +1,6 @@
-
+The main function of this code is to calculate and output the maximum number of layers that can be constructed in a 
+pyramid. The user inputs an integer N, which represents the number of bricks available. The code calculates the 
+number of bricks required for each pyramid layer and determines the maximum number of layers such that the total 
+number of bricks does not exceed N. Specifically, it increments the layer count result, continually calculating 
+the number of bricks required for the current layer and comparing it with N, until the maximum number of layers that 
+satisfies the condition is found. Finally, the program outputs the maximum number of pyramid layers result.
