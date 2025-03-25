@@ -1,1 +1,7 @@
-
+The main function of this code is to approximate the square root of a non-negative number N using the Secant Method.
+The user inputs a non-negative number N and a positive small error value epsilon. The code iteratively calculates 
+the square root using the Secant Method until the error in the result is less than epsilon. If the input N is 
+negative or if epsilon is less than or equal to zero, the program returns an error message. During the calculation, 
+two initial guesses, x0 and x1, are used, and the guesses are updated through repeated iterations until the 
+desired precision is achieved. Finally, the program outputs the computed square root result, rounded to six decimal 
+places.
