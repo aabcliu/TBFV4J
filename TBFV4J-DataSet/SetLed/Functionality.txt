@@ -1,1 +1,6 @@
-
+The main function of this code is to control the state and mode of an LED light based on the user's input command. The 
+program uses a setLED method to set the LED's mode and state based on the integer input msg from the user. If the 
+input is 0, the LED enters mode 1 and is turned on; if the input is 1, the LED enters mode 1 and is turned off; if the 
+input is 2, the LED enters mode 0 and is turned off. For any other invalid input, the program outputs an error message 
+and returns an invalid state. The code encapsulates the current mode and LED state in a Result class and outputs the 
+corresponding result after the control action.
