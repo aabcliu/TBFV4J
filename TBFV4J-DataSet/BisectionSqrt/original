@@ -1,5 +1,5 @@
 Code:
-public class BisectionSqrt{
+public class UserInputProgram{
     public static double bisectionSqrt(double N, double epsilon) {
         if(N < 0){
             return -1; 
