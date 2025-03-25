@@ -1,7 +1,7 @@
 The main function of this code is to calculate the time and velocity required for an object to freely fall from an
-initial height `h0` to a specific distance `y`. The program first checks based on the initial height `h0` and fall
-distance `y` provided by the user. If the fall distance `y` is less than 0, it outputs an error message; if the fall 
-distance `y` is greater than the initial height `h0`, it outputs another error message. If the input is valid, the 
-program simulates the free fall process to calculate the required time `t` and velocity `V` at the specific distance,
+initial height h0 to a specific distance y. The program first checks based on the initial height h0 and fall
+distance y provided by the user. If the fall distance y is less than 0, it outputs an error message; if the fall 
+distance y is greater than the initial height h0, it outputs another error message. If the input is valid, the 
+program simulates the free fall process to calculate the required time t and velocity V at the specific distance,
 and then outputs the time and velocity for the fall.
 
