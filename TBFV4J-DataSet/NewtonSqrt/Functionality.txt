@@ -1,1 +1,6 @@
-
+The main function of this code is to calculate the square root of the input number N using Newton's method, until the
+error between the calculated result and the true value is less than or equal to the given tolerance epsilon. The
+program first checks if the input is valid. If N is less than 0 or epsilon is less than or equal to 0, it returns an 
+error message. If the input is valid, the program uses Newton's method starting with N / 2.0 for the iteration, 
+gradually approaching the square root until the difference between the square of the result and N is smaller than 
+epsilon. Finally, the program outputs the calculated square root or an error message if the input is invalid.
