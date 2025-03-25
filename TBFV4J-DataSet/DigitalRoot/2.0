@@ -29,6 +29,7 @@ public class UserInputProgram{
         }
         return "No matching numbers were found";
     }
+}
 
 
 Z3:
