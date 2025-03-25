@@ -1,1 +1,4 @@
-
+The main function of this code is to calculate and output the smallest integer n such that the sum of squares from 1 
+to n is greater than or equal to the integer x entered by the user. The user inputs an integer x, and the 
+program repeatedly adds the squares from 1 to n until the sum of squares sum is greater than or equal to x, and 
+finally outputs the result n.
