@@ -1,3 +1,5 @@
 The function of the BisectionSqrt code is as follows:
-It uses the bisection method to calculate the square root of a given non-negative number N, until the error is smaller than the specified epsilon. If N is a negative number, it returns -1. If epsilon is less than or equal to 0, it returns -2. Otherwise, it approximates the square root using the bisection method and returns the result.
+It uses the bisection method to calculate the square root of a given non-negative number N, until the error is smaller
+than the specified epsilon. If N is a negative number, it returns -1. If epsilon is less than or equal to 0, it
+returns -2. Otherwise, it approximates the square root using the bisection method and returns the result.
 
