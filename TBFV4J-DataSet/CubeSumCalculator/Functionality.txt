@@ -1,3 +1,5 @@
 The function of this code is to take an integer input x from the user and then accumulate the cubes of integers starting from 1 until the sum is greater than or equal to x. 
-Specifically, the program uses a while loop to increment a variable n, adding the cube of n to a sum variable at each iteration, until the value of sum reaches or exceeds x. Ultimately, the value of n represents the smallest integer for which the sum of cubes exceeds or equals x for the first time.
+Specifically, the program uses a while loop to increment a variable n, adding the cube of n to a sum variable at each
+iteration, until the value of sum reaches or exceeds x. Ultimately, the value of n represents the smallest integer for
+which the sum of cubes exceeds or equals x for the first time.
 
