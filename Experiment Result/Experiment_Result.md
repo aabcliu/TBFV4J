@@ -45,16 +45,16 @@
 | 9.4   | 10                   | 11.911745 | Counterexample:  123/2  |
 | 9.5   | 5                    | 4.886071  | Counterexample:   23 |
 | 10.0  | 6                    | 2.952516  | Totally verified  |
-| 10.1  | 4                    | 0.963104  | Counterexample:    |
-| 10.2  | 2                    | 0.457889  | Counterexample:    |
+| 10.1  | 4                    | 0.963104  | Counterexample: 3   |
+| 10.2  | 2                    | 0.457889  | Counterexample:  1  |
 | 11.0  | 19                   | 16.290529 | Totally verified  |
 | 11.1  | 19                   | 16.893655 | Totally verified  |
-| 11.2  | 13                   | 10.487529 | Counterexample:    |
+| 11.2  | 13                   | 10.487529 | Counterexample:  79    |
 | 12.0  | 9                    | 6.004809  | Totally verified  |
-| 12.1  | 2                    | 0.569503  | Counterexample:    |
-| 12.2  | 6                    | 2.525527  | Counterexample:    |
-| 12.3  | 5                    | 2.108805  | Counterexample:    |
+| 12.1  | 2                    | 0.569503  | Counterexample:  4 |
+| 12.2  | 6                    | 2.525527  | Counterexample:  55    |
+| 12.3  | 5                    | 2.108805  | Counterexample:  90    |
 | 13.0  | 6                    | 3.598183  | Totally verified  |
 | 13.1  | 6                    | 3.778133  | Totally verified  |
-| 13.2  | 2                    | 0.769957  | Counterexample:    |
-| 13.3  | 4                    | 1.794851  | Counterexample:    |
+| 13.2  | 2                    | 0.769957  | Counterexample:  9    |
+| 13.3  | 4                    | 1.794851  | Counterexample:  73  |
