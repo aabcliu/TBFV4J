@@ -8,7 +8,7 @@
 | 1.4   | 7                    | 3.854978  | Counterexample:  5    |
 | 1.5   | 6                    | 2.423132  | Counterexample:  4    |
 | 2.0   | 5                    | 12.683130 | Totally verified  |
-| 2.1   | 4                    | 8.116110  | Counterexample:    |
+| 2.1   | 4                    | 8.116110  | Counterexample:  2    |
 | 2.2   | 5                    | 12.427794 | Counterexample:    |
 | 3.0   | 26                   | 20.805720 | Totally verified  |
 | 3.1   | 12                   | 7.308792  | Counterexample:    |
