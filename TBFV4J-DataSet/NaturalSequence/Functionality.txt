@@ -1,1 +1,5 @@
-
+The main function of this code is to determine and calculate the minimum number of consecutive positive integers n
+whose sum is greater than or equal to the user-input integer x, and output the result. When x is less than 0, the 
+program sets n to -1. When x equals 0, the output result is 0. When x is greater than 0, the program uses a loop
+to accumulate the sum of consecutive positive integers starting from 1, until the sum is greater than or equal to x, 
+and then outputs the largest integer n that satisfies this condition.
