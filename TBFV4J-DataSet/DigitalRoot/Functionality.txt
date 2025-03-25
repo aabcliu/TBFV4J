@@ -1,1 +1,1 @@
-
+This code is designed to find an integer that meets specific conditions by calculating the digital root. The program starts with two integers A and n input by the user, then iterates over the integers starting from A and decreasing. For each integer, it calculates the digital root until it finds the first integer whose digital root equals n. If such an integer is found, it returns that integer; if no matching integer is found, it returns "No matching numbers were found". If the input does not meet the requirements, the program returns an error code "error_code".
