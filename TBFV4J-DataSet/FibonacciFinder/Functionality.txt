@@ -1,1 +1,5 @@
-
+The main function of this code is to find the largest Fibonacci number less than or equal to the user-input integer n
+using the closed-form formula for the Fibonacci sequence, and then output both the value of the Fibonacci number and
+its corresponding index. The program first calculates the Fibonacci number at position k and continues until it finds
+a Fibonacci number greater than n. It then returns the index of the largest Fibonacci number corresponding to n and
+its value.
