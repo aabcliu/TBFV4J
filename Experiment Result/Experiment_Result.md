@@ -28,10 +28,10 @@
 | 6.2   | 13                   | 7.809769  | Counterexample:  91    |
 | 6.3   | 16                   | 11.622232 | Counterexample:  122  |
 | 7.0   | 26                   | 18.494554 | Totally verified  |
-| 7.1   | 7                    | 2.714171  | Counterexample:    |
-| 7.2   | 4                    | 0.620281  | Counterexample:    |
-| 7.3   | 2                    | 0.221565  | Counterexample:    |
-| 7.4   | 18                   | 9.717270  | Counterexample:    |
+| 7.1   | 7                    | 2.714171  | Counterexample:  48  |
+| 7.2   | 4                    | 0.620281  | Counterexample:  6  |
+| 7.3   | 2                    | 0.221565  | Counterexample:  0    |
+| 7.4   | 18                   | 9.717270  | Counterexample:  125  |
 | 7.5   | 5                    | 1.084125  | Counterexample:    |
 | 8.0   | 15                   | 11.228595 | Totally verified  |
 | 8.1   | 7                    | 3.376820  | Counterexample:    |
