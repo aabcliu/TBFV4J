@@ -22,7 +22,7 @@ public class FibonacciFinder{
         int n = scanner.nextInt();
         int index = findFib(n);
         double result = fibonacci(index);
-        System.out.printf("第 %d Fibonacci number: %.0f\n", index, result);
+        System.out.printf("no %d Fibonacci number: %.0f\n", index, result);
     }
 }
 
