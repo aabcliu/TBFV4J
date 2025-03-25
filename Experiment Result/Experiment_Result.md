@@ -11,14 +11,14 @@
 | 2.1   | 4                    | 8.116110  | Counterexample:  -3    |
 | 2.2   | 5                    | 12.427794 | Counterexample:  9    |
 | 3.0   | 26                   | 20.805720 | Totally verified  |
-| 3.1   | 12                   | 7.308792  | Counterexample: 1   |
+| 3.1   | 12                   | 7.308792  | Counterexample:  6  |
 | 3.2   | 15                   | 9.401510  | Counterexample:  13    |
-| 3.3   | 7                    | 4.725882  | Counterexample:  6    |
+| 3.3   | 7                    | 4.725882  | Counterexample:  -5/2   |
 | 4.0   | 14                   | 9.111284  | Totally verified  |
 | 4.1   | 4                    | 1.172165  | Counterexample:  7/2    |
-| 4.2   | 8                    | 2.375108  | Counterexample:     |
-| 4.3   | 7                    | 2.077817  | Counterexample:    |
-| 4.4   | 10                   | 4.148606  | Counterexample:    |
+| 4.2   | 8                    | 2.375108  | Counterexample:  10  |
+| 4.3   | 7                    | 2.077817  | Counterexample:   23 |
+| 4.4   | 10                   | 4.148606  | Counterexample:   6 |
 | 5.0   | 10                   | 5.270240  | Totally verified  |
 | 5.1   | 7                    | 3.359520  | Counterexample:    |
 | 5.2   | 13                   | 7.216367  | Counterexample:    |
