@@ -3,7 +3,7 @@
 |-------|----------------------|-----------|-------------------|
 | 1.0   | 11                   | 8.041594  | Totally verified  |
 | 1.1   | 4                    | 1.258768  | Counterexample: -1    |
-| 1.2   | 6                    | 2.832229  | Counterexample:    |
+| 1.2   | 6                    | 2.832229  | Counterexample: -1    |
 | 1.3   | 5                    | 1.966825  | Counterexample:    |
 | 1.4   | 7                    | 3.854978  | Counterexample:    |
 | 1.5   | 6                    | 2.423132  | Counterexample:    |
