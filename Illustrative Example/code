@@ -1,6 +1,5 @@
-
-
-The theoretical derivation process presented here is a continuation and supplementary explanation of Section 4 - Illustrative Example in the article.
+The theoretical derivation process presented here is a continuation and supplementary explanation of 
+Section 4 - Illustrative Example in the article.
 
 For the first functional scenario:
 
@@ -41,7 +40,6 @@ x \leq 0\: \land\: !(0 < x) \Rightarrow (0 = 0)
 $$
 
 is a tautology, which is obviously true.
-
 
 
 For the second functional scenario:
@@ -114,7 +112,7 @@ T \land Ct \Rightarrow D' := \\x > 0\: \land \neg(0 + (((0) + 1) * ((0) + 1) * (
 \Rightarrow ((((((0) + 1) + 1) + 1) + 1)-1)*(((((0) + 1) + 1) + 1) + 1)*\\((((((0) + 1) + 1) + 1) + 1)-1)*(((((0) + 1) + 1) + 1) + 1)/4<x \land \\ (((((0) + 1) + 1) + 1) + 1)*((((((0) + 1) + 1) + 1) + 1)+1)*\\(((((0) + 1) + 1) + 1) + 1)*((((((0) + 1) + 1) + 1) + 1)+1)/4>=x
 $$
 
- To prove $$T \land Ct \Rightarrow D' $$​ is a tautology.  
+To prove $$T \land Ct \Rightarrow D' $$​ is a tautology.  
 
 That is equivalent to proving that the formula  $$ T \land Ct \land \neg D'$$  is unsatisfiable. 
 
