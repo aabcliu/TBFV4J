@@ -112,6 +112,15 @@ def get_user_input():
     rounds = int(input("\nStep 4: Enter how many times you want to run the program: "))
     return java_code, T, D, rounds
 
+def read_java_code_from_file(file_path="/Users/liuyang/Desktop/TBFV4J-main/ModifiedUserInputProgram.txt"):
+    """
+    Read Java code from the specified file.
+    """
+    with open(file_path, "r") as file:
+        java_code = file.read()
+    return java_code
+
+
 def extract_input_variables(java_code: str) -> list:
     input_patterns = [
         r"(\w+)\s*=\s*scanner\.nextInt\(\)",
@@ -125,6 +134,7 @@ def extract_input_variables(java_code: str) -> list:
         input_variables.extend(matches)
 
     return input_variables
+
 def run_java_code(java_code: str, user_inputs: dict) -> str:
     with open("UserInputProgram.java", "w") as file:
         file.write("import java.util.Scanner;\n" + java_code)
@@ -148,6 +158,9 @@ def run_java_code(java_code: str, user_inputs: dict) -> str:
     except subprocess.CalledProcessError:
         print("Error during Java execution.")
         return ""
+
+
+
 def parse_execution_path(execution_output: str) -> list:
     lines = execution_output.splitlines()
     execution_path = []
@@ -301,7 +314,7 @@ def generate_random_inputs(logical_expression, variables, previous_cts, used_inp
             print(f"Debug: Satisfying inputs found: {inputs}")
             return inputs
 
-    print("Debug: No satisfying inputs found within the maximum attempts.")
+    # print("Debug: No satisfying inputs found within the maximum attempts.")
     return None
 
 def simplify_expression(expression):
@@ -351,14 +364,14 @@ def repeat_execution_with_ct(java_code, T, D, rounds, input_variables):
         # Extract execution path
         execution_path = parse_execution_path(execution_output)
         print("\nExecution Path:")
-        # for step in execution_path:
-        #     print(step)
+        for step in execution_path:
+            print(step)
 
         # Derive the Hoare logic
         derivation, new_d, new_ct = derive_hoare_logic(D, execution_path)
         print("\nHoare Logic Derivation:")
-        # for step in derivation:
-        #     print(step)
+        for step in derivation:
+            print(step)
 
         print(f"\nNew D: {new_d}")
         print(f"\nNew Ct: {new_ct}")
@@ -431,7 +444,7 @@ def derive_hoare_logic(specification: str, execution_path: list) -> (list, str, 
             d2 = d_match.group(2).strip()
         else:
             # When the match fails, a warning is thrown, but the entire D continues to be treated as a single condition
-            print("Warning: Unable to parse D as two subconditions. Treating D as a single condition.")
+            # print("Warning: Unable to parse D as two subconditions. Treating D as a single condition.")
             d1 = specification.strip()
             d2 = None
     else:
@@ -492,9 +505,17 @@ def replace_variables(current_condition: str, variable: str, new_value: str) -> 
     """
     pattern = rf'\b{re.escape(variable)}\b'  # Match variable names exactly
     return re.sub(pattern, new_value, current_condition)
-def main():
 
-    java_code, T, D, rounds = get_user_input()
+
+def main():
+    # Automatically read the Java code from the file
+
+    java_code = read_java_code_from_file()
+    print("Step 1: From ModifiedUserInputProgram.txt file to load code")
+    print(java_code)
+    T = input("Step 2: Enter your Test Condition T:")
+    D = input("Step 3: Enter your Define Condition D: ")
+    rounds = int(input("Step 4: Enter how many times you want to run the program: "))
     start_time = time.time()
     input_variables = extract_input_variables(java_code)
     repeat_execution_with_ct(java_code, T, D, rounds, input_variables)
@@ -504,7 +525,7 @@ def main():
     execution_time = end_time - start_time
     execution_time=execution_time
     print(f"Running time: {execution_time:.6f} seconds")
-    print("Totally Verified !!")
+    print("Totally verified !")
 
 if __name__ == "__main__":
     main()
