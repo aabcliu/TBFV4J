@@ -1,5 +1,5 @@
 # TBFV4J: An automated testing-based formal verification tool for Java
-This project has been accepted for the ISSTA 2025 tool demonstration track: Ai Liu, Yang Liu, and Shaoying Liu. 2025. TBFV4J: An Automated Testing-Based Formal Verification Tool for Java. In 34th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA Companion ’25), June 25–28, 2025, Trondheim, Norway. ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/3713081.3731740"
+This project has been accepted for the ISSTA 2025 tool demonstration track: Ai Liu, Yang Liu, and Shaoying Liu. 2025. TBFV4J: An Automated Testing-Based Formal Verification Tool for Java. In 34th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA Companion ’25), June 25–28, 2025, Trondheim, Norway. ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/3713081.3731740
 
 # Introduction
 
