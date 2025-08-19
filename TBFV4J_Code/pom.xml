@@ -12,33 +12,36 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 给 z3.jar 路径留一个占位符，CI 里会传值 -->
+        <z3.jar.path>${project.basedir}/lib/com.microsoft.z3.jar</z3.jar.path>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.github.javaparser</groupId>
             <artifactId>javaparser-core</artifactId>
             <version>3.23.1</version>
         </dependency>
+
+        <!-- Z3 Java binding -->
         <dependency>
             <groupId>com.microsoft.z3</groupId>
             <artifactId>z3</artifactId>
             <version>4.13.3</version>
             <scope>system</scope>
-            <systemPath>/Users/liuyang/Desktop/研0资料/TBFV4J/lib/z3.jar</systemPath>
+            <systemPath>${z3.jar.path}</systemPath>
         </dependency>
+
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <version>2.4.16</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.jsqlparser</groupId>
             <artifactId>jsqlparser</artifactId>
             <version>3.1</version>
         </dependency>
-
     </dependencies>
-
-
-
 </project>
