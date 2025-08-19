@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 (Temurin) with Maven cache
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'   # 自动缓存 ~/.m2，加速后续构建
+
+      - name: Build & Test (Maven verify)
+        run: mvn -B -U verify
+
+      - name: Upload Surefire test reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports/**
+
+      - name: Upload JaCoCo coverage site (if generated)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-site
+          path: target/site/jacoco/**
+          if-no-files-found: ignore
+
+      - name: Upload packaged jars
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: target/*.jar
+          if-no-files-found: ignore
