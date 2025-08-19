@@ -1,34 +1,42 @@
 name: CI
-
 on:
-  push:
-    branches: [ "main", "master" ]
+  push: { branches: [ "main", "master" ] }
   pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    # 关键：把默认工作目录指向包含 pom.xml 的子目录
     defaults:
       run:
         working-directory: TBFV4J_Code
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 17 (Temurin) with Maven cache
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
           cache: maven
 
-      - name: Build & Test (Maven verify)
-        run: mvn -B -U verify
+      - name: Download Z3 (Linux x64)
+        run: |
+          Z3_VER=4.13.3
+          Z3_PKG="z3-$Z3_VER-x64-glibc-2.35"
+          sudo apt-get update -y
+          sudo apt-get install -y unzip
+          curl -L -o z3.zip "https://github.com/Z3Prover/z3/releases/download/z3-$Z3_VER/$Z3_PKG.zip"
+          unzip -q z3.zip -d z3
+          echo "Z3_HOME=$GITHUB_WORKSPACE/TBFV4J_Code/z3/$Z3_PKG" >> $GITHUB_ENV
+          echo "LD_LIBRARY_PATH=$GITHUB_WORKSPACE/TBFV4J_Code/z3/$Z3_PKG/bin:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+          echo "MAVEN_OPTS=-Djava.library.path=$GITHUB_WORKSPACE/TBFV4J_Code/z3/$Z3_PKG/bin" >> $GITHUB_ENV
+          echo "Z3_JAR_PATH=$GITHUB_WORKSPACE/TBFV4J_Code/z3/$Z3_PKG/bin/com.microsoft.z3.jar" >> $GITHUB_ENV
 
-      # ——— 下面是把报告和产物作为 Artifacts 上传（注意都加了子目录前缀）———
+      - name: Build & Test (Maven verify)
+        # 关键：把 z3.jar.path 指向刚下载的 Jar
+        run: mvn -B -U -Dz3.jar.path="${{ env.Z3_JAR_PATH }}" verify
+
       - name: Upload Surefire test reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -36,7 +44,7 @@ jobs:
           name: surefire-reports
           path: TBFV4J_Code/target/surefire-reports/**
 
-      - name: Upload JaCoCo coverage site (if generated)
+      - name: Upload JaCoCo coverage site
         if: always()
         uses: actions/upload-artifact@v4
         with:
