@@ -9,6 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    # 关键：把默认工作目录指向包含 pom.xml 的子目录
+    defaults:
+      run:
+        working-directory: TBFV4J_Code
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,30 +21,32 @@ jobs:
       - name: Set up JDK 17 (Temurin) with Maven cache
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: '17'
-          cache: 'maven'   # 自动缓存 ~/.m2，加速后续构建
+          cache: maven
 
       - name: Build & Test (Maven verify)
         run: mvn -B -U verify
 
+      # ——— 下面是把报告和产物作为 Artifacts 上传（注意都加了子目录前缀）———
       - name: Upload Surefire test reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: surefire-reports
-          path: target/surefire-reports/**
+          path: TBFV4J_Code/target/surefire-reports/**
 
       - name: Upload JaCoCo coverage site (if generated)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-site
-          path: target/site/jacoco/**
+          path: TBFV4J_Code/target/site/jacoco/**
           if-no-files-found: ignore
 
       - name: Upload packaged jars
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: target/*.jar
+          path: TBFV4J_Code/target/*.jar
           if-no-files-found: ignore
